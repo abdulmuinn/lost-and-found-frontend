@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Modal.module.css'; // <-- Impor file CSS
+import styles from './Modal.module.css'; // Pastikan impor ini ada
 
 const Modal = ({ title, message, onConfirm, onCancel, showCancel = true }) => {
     return (

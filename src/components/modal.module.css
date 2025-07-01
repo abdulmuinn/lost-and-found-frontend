@@ -1,43 +1,38 @@
 .overlay {
-    position: fixed; /* Tetap di layar, bahkan saat di-scroll */
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5); /* Latar belakang semi-transparan */
+    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000; /* Pastikan modal selalu di paling depan */
+    z-index: 1000;
 }
-
 .modal {
     background-color: white;
-    padding: 1.5rem; /* 24px */
-    border-radius: 0.5rem; /* 8px */
+    padding: 1.5rem;
+    border-radius: 0.5rem;
     box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
     width: 100%;
-    max-width: 28rem; /* 448px */
+    max-width: 28rem;
     margin: 1rem;
 }
-
 .title {
-    font-size: 1.25rem; /* 20px */
+    font-size: 1.25rem;
     font-weight: 700;
     margin-bottom: 1rem;
 }
-
 .message {
     color: #4b5563;
     margin-bottom: 1.5rem;
 }
-
 .buttonContainer {
     display: flex;
-    justify-content: flex-end; /* Tombol di sebelah kanan */
-    gap: 0.5rem; /* Jarak antar tombol */
+    justify-content: flex-end;
+    gap: 0.5rem;
 }
-
 .button {
     padding: 0.5rem 1rem;
     border-radius: 0.375rem;
@@ -45,7 +40,6 @@
     border: none;
     cursor: pointer;
 }
-
 .confirmButton {
     composes: button;
     background-color: #2563eb;
@@ -54,7 +48,6 @@
 .confirmButton:hover {
     background-color: #1d4ed8;
 }
-
 .cancelButton {
     composes: button;
     background-color: #e5e7eb;
