@@ -1,0 +1,131 @@
+.pageContainer {
+    background-color: #f9fafb;
+    padding: 3rem 1rem;
+}
+.container {
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.backButton {
+    display: flex;
+    align-items: center;
+    color: #2563eb;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+}
+.backButton:hover {
+    color: #1d4ed8;
+}
+.card {
+    background-color: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+@media (min-width: 768px) {
+    .card {
+        flex-direction: row;
+    }
+}
+.imageWrapper {
+    width: 100%;
+}
+@media (min-width: 768px) {
+    .imageWrapper {
+        width: 50%;
+    }
+}
+.image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+@media (min-width: 768px) {
+    .content {
+        width: 50%;
+    }
+}
+.title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #111827;
+}
+.category {
+    font-size: 1.125rem;
+    color: #4b5563;
+    margin-top: 0.5rem;
+}
+.detailsSection {
+    margin-top: 1.5rem;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.infoRow {
+    display: flex;
+    align-items: center;
+    color: #374151;
+}
+.infoRow svg {
+    margin-right: 0.5rem;
+    color: #6b7281;
+}
+.actionArea {
+    margin-top: auto; /* Mendorong ke bawah */
+    padding-top: 2rem;
+}
+.claimButton {
+    width: 100%;
+    background-color: #16a34a;
+    color: white;
+    font-size: 1.125rem;
+    font-weight: 700;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+.claimButton:hover {
+    background-color: #15803d;
+}
+.claimForm {
+    margin-top: 1rem;
+}
+.claimForm textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+}
+.claimForm button {
+    margin-top: 0.5rem;
+    width: 100%;
+    background-color: #2563eb;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+}
+.claimMessage {
+    margin-top: 1rem;
+    text-align: center;
+    font-weight: 600;
+    color: #1d4ed8;
+}

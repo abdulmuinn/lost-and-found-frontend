@@ -1,0 +1,88 @@
+.container {
+    max-width: 1024px; /* Lebar maksimal konten */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2rem;
+}
+
+.title {
+    font-size: 1.875rem; /* Ukuran font besar */
+    font-weight: 700;   /* Tebal */
+    margin-bottom: 1.5rem;
+}
+
+.greeting {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #1f2937;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Default 1 kolom untuk mobile */
+    gap: 2rem; /* Jarak antar item */
+    margin-top: 2rem;
+}
+
+/* Terapkan 2 kolom untuk layar yang lebih besar (desktop) */
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.card {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.cardTitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 0.5rem;
+}
+
+.activityList {
+    max-height: 24rem; /* Batas tinggi agar bisa di-scroll */
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* Jarak antar item di dalam list */
+}
+
+.activityItem {
+    border-bottom: 1px solid #f3f4f6;
+    padding-bottom: 0.75rem;
+}
+.activityItem:last-child {
+    border-bottom: none; /* Hapus border untuk item terakhir */
+}
+
+.itemTitle {
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.itemStatus {
+    font-size: 0.875rem;
+    color: #4b5563;
+}
+
+.itemDate {
+    font-size: 0.75rem;
+    color: #9ca3af;
+    margin-top: 0.25rem;
+}
+
+.statusApproved { font-weight: 700; color: #16a34a; }
+.statusPending { font-weight: 700; color: #d97706; }
+.statusRejected { font-weight: 700; color: #dc2626; }
+
+.noActivity {
+    color: #6b7281;
+}
