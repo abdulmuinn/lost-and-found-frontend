@@ -4,7 +4,6 @@ import Spinner from '../components/Spinner';
 import styles from './ManageDataPage.module.css';
 import { ArrowLeft } from 'lucide-react';
 
-// Komponen kecil untuk satu baris data
 const DataRow = ({ item, onDelete, dataKey, nameKey, secondNameKey }) => (
     <div className={styles.dataRow}>
         <span>{item[nameKey]} {secondNameKey && item[secondNameKey] ? `(Lantai ${item[secondNameKey]})` : ''}</span>
@@ -12,7 +11,6 @@ const DataRow = ({ item, onDelete, dataKey, nameKey, secondNameKey }) => (
     </div>
 );
 
-// Komponen untuk satu bagian manajemen (menambah & menampilkan)
 const ManagementSection = ({ title, items, onAdd, onDelete, dataKey, nameKey, inputPlaceholder, secondInputPlaceholder, secondInputKey }) => {
     const [newItem, setNewItem] = useState('');
     const [secondItem, setSecondItem] = useState('');
@@ -45,25 +43,19 @@ const ManagementSection = ({ title, items, onAdd, onDelete, dataKey, nameKey, in
     );
 };
 
-
 const ManageDataPage = ({ setPage }) => {
     const [kategori, setKategori] = useState([]);
     const [lokasi, setLokasi] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState('');
 
     const fetchData = async () => {
         try {
             setLoading(true);
-            const [kategoriRes, lokasiRes] = await Promise.all([
-                getKategori(),
-                getLokasi()
-            ]);
+            const [kategoriRes, lokasiRes] = await Promise.all([getKategori(), getLokasi()]);
             setKategori(kategoriRes.data);
             setLokasi(lokasiRes.data);
-        } catch (err) {
-            console.error("Gagal memuat data master", err);
-            setError("Tidak dapat memuat data. Silakan coba lagi nanti.");
+        } catch (error) {
+            console.error("Gagal memuat data master", error);
         } finally {
             setLoading(false);
         }
@@ -73,35 +65,12 @@ const ManageDataPage = ({ setPage }) => {
         fetchData();
     }, []);
 
-    const handleAddKategori = async (data) => {
-        await addKategori(data).catch(err => alert(err.response?.data?.message || 'Gagal menambah data'));
-        fetchData();
-    };
+    const handleAddKategori = async (data) => { await addKategori(data); fetchData(); };
+    const handleDeleteKategori = async (id) => { if(window.confirm('Yakin?')) { await deleteKategori(id).catch(err => alert(err.response?.data?.message)); fetchData(); } };
+    const handleAddLokasi = async (data) => { await addLokasi(data); fetchData(); };
+    const handleDeleteLokasi = async (id) => { if(window.confirm('Yakin?')) { await deleteLokasi(id).catch(err => alert(err.response?.data?.message)); fetchData(); } };
 
-    const handleDeleteKategori = async (id) => {
-        if (window.confirm('Anda yakin ingin menghapus kategori ini? Tindakan ini tidak bisa dibatalkan.')) {
-            await deleteKategori(id).catch(err => alert(err.response?.data?.message || 'Gagal menghapus data'));
-            fetchData();
-        }
-    };
-
-    const handleAddLokasi = async (data) => {
-        await addLokasi(data).catch(err => alert(err.response?.data?.message || 'Gagal menambah data'));
-        fetchData();
-    };
-
-    const handleDeleteLokasi = async (id) => {
-        if (window.confirm('Anda yakin ingin menghapus lokasi ini? Tindakan ini tidak bisa dibatalkan.')) {
-            await deleteLokasi(id).catch(err => alert(err.response?.data?.message || 'Gagal menghapus data'));
-            fetchData();
-        }
-    };
-
-    if (loading) return <Spinner message="Memuat data master..." />;
-
-    if (error) {
-        return <div style={{textAlign: 'center', padding: '2rem', color: 'red'}}>{error}</div>;
-    }
+    if (loading) return <Spinner />;
 
     return (
         <div className={styles.container}>

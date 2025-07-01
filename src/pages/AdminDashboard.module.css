@@ -7,7 +7,6 @@
 .title {
     font-size: 1.875rem;
     font-weight: 700;
-    margin-bottom: 1.5rem;
 }
 .message {
     text-align: center;
@@ -34,17 +33,9 @@
         flex-direction: row;
     }
 }
-.claimInfo {
-    flex-grow: 1;
-}
-.claimInfo h2 {
-    font-size: 1.25rem;
-    font-weight: 700;
-}
-.claimInfo p {
-    margin-top: 0.5rem;
-    color: #4b5563;
-}
+.claimInfo { flex-grow: 1; }
+.claimInfo h2 { font-size: 1.25rem; font-weight: 700; }
+.claimInfo p { margin-top: 0.5rem; color: #4b5563; }
 .claimInfo .proof {
     background-color: #f3f4f6;
     padding: 0.75rem;
@@ -64,21 +55,23 @@
         justify-content: center;
     }
 }
-.button {
+.approveButton {
     padding: 0.5rem 1rem;
     border: none;
     border-radius: 0.375rem;
     color: white;
     font-weight: 600;
     cursor: pointer;
-}
-.approveButton {
-    composes: button;
     background-color: #22c55e;
 }
 .approveButton:hover { background-color: #16a34a; }
 .rejectButton {
-    composes: button;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.375rem;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
     background-color: #ef4444;
 }
 .rejectButton:hover { background-color: #dc2626; }
