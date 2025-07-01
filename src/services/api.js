@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 // URL dasar dari server backend Anda
-const API_URL = 'lost-found-backend-production.up.railway.app/api';
+//const API_URL = 'lost-found-backend-production.up.railway.app/api';
+const API_URL = 'http://localhost:5000/api';
 
 // Membuat instance axios
 const api = axios.create({

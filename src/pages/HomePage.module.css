@@ -1,0 +1,57 @@
+.hero {
+    background-color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+.heroTitle {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--gray-900);
+    letter-spacing: -0.025em;
+}
+.heroTitle span {
+    color: var(--primary-blue);
+}
+.heroSubtitle {
+    margin-top: 1rem;
+    font-size: 1.125rem;
+    color: var(--gray-600);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.buttonGroup {
+    margin-top: 2.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+.button {
+    padding: 0.75rem 2rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+.buttonPrimary {
+    composes: button;
+    background-color: var(--primary-blue);
+    color: white;
+}
+.buttonPrimary:hover {
+    background-color: var(--primary-blue-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px 0 rgb(0 118 255 / 39%);
+}
+.buttonSecondary {
+    composes: button;
+    background-color: var(--primary-green);
+    color: white;
+}
+.buttonSecondary:hover {
+    background-color: var(--primary-green-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px 0 rgb(22 163 74 / 39%);
+}

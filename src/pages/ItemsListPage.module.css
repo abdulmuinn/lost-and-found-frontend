@@ -1,113 +1,90 @@
 .pageContainer {
-    background-color: #f9fafb;
+    background-color: var(--gray-50);
     min-height: 100vh;
 }
-
 .container {
     max-width: 1280px;
     margin-left: auto;
     margin-right: auto;
-    padding: 2.5rem 1rem;
+    padding: 2.5rem 2rem;
 }
-
 .title {
-    font-size: 2.25rem;
+    font-size: 2.5rem;
     font-weight: 800;
-    color: #111827;
+    color: var(--gray-900);
     text-align: center;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
-
 .filterArea {
     background-color: white;
     padding: 1rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-    margin-bottom: 2rem;
+    border-radius: 0.75rem;
+    border: 1px solid var(--gray-200);
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    margin-bottom: 2.5rem;
     display: flex;
-    flex-direction: column; /* Tumpuk di mobile */
+    flex-direction: column;
     gap: 1rem;
 }
-
 @media (min-width: 768px) {
     .filterArea {
-        flex-direction: row; /* Berdampingan di desktop */
+        flex-direction: row;
         align-items: center;
     }
 }
-
-.searchInput {
+.searchInput, .categorySelect {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    padding: 0.75rem;
+    border: 1px solid var(--gray-200);
+    border-radius: 0.5rem;
     width: 100%;
-    flex-grow: 1; /* Ambil sisa ruang */
-    padding: 0.5rem;
-    border: 1px solid #d1d5db;
-    border-radius: 0.375rem;
 }
-
+.searchInput {
+    flex-grow: 1;
+}
 .categorySelect {
-    width: 100%;
-    padding: 0.5rem;
-    border: 1px solid #d1d5db;
-    border-radius: 0.375rem;
     background-color: white;
 }
-
 @media (min-width: 768px) {
     .categorySelect {
-        width: auto; /* Lebar otomatis di desktop */
+        width: auto;
+        min-width: 200px;
     }
 }
-
 .itemsGrid {
     display: grid;
-    grid-template-columns: repeat(1, 1fr); /* 1 kolom di mobile */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 2rem;
 }
-
-/* Aturan untuk layar lebih besar */
-@media (min-width: 640px) {
-    .itemsGrid {
-        grid-template-columns: repeat(2, 1fr); /* 2 kolom di tablet */
-    }
-}
-@media (min-width: 1024px) {
-    .itemsGrid {
-        grid-template-columns: repeat(3, 1fr); /* 3 kolom di laptop */
-    }
-}
-@media (min-width: 1280px) {
-    .itemsGrid {
-        grid-template-columns: repeat(4, 1fr); /* 4 kolom di layar besar */
-    }
-}
-
 .messageCenter {
     text-align: center;
-    padding: 4rem 0;
-    color: #6b7281;
-    font-size: 1.25rem;
+    padding: 5rem 0;
+    color: var(--gray-500);
+    font-size: 1.125rem;
 }
-
-/* Styling untuk ItemCard */
 .card {
     background-color: white;
-    border-radius: 0.5rem;
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    border-radius: 0.75rem;
+    border: 1px solid var(--gray-200);
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    transition: transform 0.3s;
+    transition: all 0.3s ease-in-out;
 }
 .card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 .cardImage {
     width: 100%;
-    height: 12rem; /* 192px */
+    height: 12rem;
     object-fit: cover;
+    border-bottom: 1px solid var(--gray-200);
 }
 .cardContent {
-    padding: 1rem;
+    padding: 1.25rem;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -115,63 +92,60 @@
 .statusBadge {
     font-size: 0.75rem;
     font-weight: 600;
-    padding: 0.25rem 0.5rem;
+    padding: 0.25rem 0.75rem;
     border-radius: 9999px;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
     align-self: flex-start;
 }
 .statusFound {
     background-color: #dcfce7;
-    color: #166534;
+    color: var(--primary-green);
 }
 .statusLost {
     background-color: #fee2e2;
-    color: #991b1b;
+    color: var(--primary-red);
 }
 .cardTitle {
     font-size: 1.125rem;
     font-weight: 700;
-    color: #1f2937;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    color: var(--gray-900);
+    margin-bottom: 0.25rem;
 }
 .cardCategory {
     font-size: 0.875rem;
-    color: #6b7281;
-    margin-bottom: 0.5rem;
+    color: var(--gray-500);
+    margin-bottom: 1rem;
 }
 .cardLocation {
     font-size: 0.875rem;
-    color: #4b5563;
+    color: var(--gray-600);
     display: flex;
     align-items: center;
-    margin-bottom: 1rem;
 }
 .cardLocation svg {
     width: 1rem;
     height: 1rem;
     margin-right: 0.5rem;
     flex-shrink: 0;
+    color: var(--gray-400);
 }
 .cardFooter {
-    margin-top: auto;
+    margin-top: 1.5rem;
     padding-top: 1rem;
-    border-top: 1px solid #f3f4f6;
+    border-top: 1px solid var(--gray-100);
 }
 .detailButton {
     width: 100%;
-    background-color: #2563eb;
+    background-color: var(--primary-blue);
     color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 0.375rem;
+    padding: 0.6rem 1rem;
+    border-radius: 0.5rem;
     font-size: 0.875rem;
     font-weight: 600;
     border: none;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: all 0.2s ease-in-out;
 }
 .detailButton:hover {
-    background-color: #1d4ed8;
+    background-color: var(--primary-blue-dark);
 }
-

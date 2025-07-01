@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { Mail, Key, User, Phone, FileText } from 'lucide-react';
-import styles from './AuthForm.module.css'; // <-- Impor file CSS kita
+import styles from './AuthForm.module.css';
 
 const InputGroup = ({ icon, ...props }) => (
     <div className={styles.inputGroup}>
@@ -13,27 +13,15 @@ const InputGroup = ({ icon, ...props }) => (
 );
 
 const AuthForm = ({ isLogin, setPage }) => {
+    // ... (Logika state dan fungsi tidak berubah)
     const { login, register } = useAuth();
-    const [formData, setFormData] = useState({
-        nama: '', email: '', no_telp: '', password: '', nik: '',
-    });
+    const [formData, setFormData] = useState({ nama: '', email: '', no_telp: '', password: '', nik: '' });
     const [error, setError] = useState('');
-
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
-
+    const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
-
-        let result;
-        if (isLogin) {
-            result = await login(formData.email, formData.password);
-        } else {
-            result = await register(formData);
-        }
-
+        const result = isLogin ? await login(formData.email, formData.password) : await register(formData);
         if (result.success) {
             if (!isLogin) {
                 alert('Registrasi berhasil! Silakan login.');
@@ -71,9 +59,7 @@ const AuthForm = ({ isLogin, setPage }) => {
                         )}
                         <InputGroup icon={<Mail />} type="email" name="email" placeholder="Alamat Email" value={formData.email} onChange={handleChange} required />
                         <InputGroup icon={<Key />} type="password" name="password" placeholder="Password" value={formData.password} onChange={handleChange} required />
-
                         {error && <p className={styles.errorMessage}>{error}</p>}
-
                         <div>
                             <button type="submit" className={styles.submitButton}>
                                 {isLogin ? 'Login' : 'Daftar'}
